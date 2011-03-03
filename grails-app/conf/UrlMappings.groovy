@@ -6,8 +6,10 @@ class UrlMappings {
 				// apply constraints here
 			}
 		}
-
-		"/"(view:"/index")
+		
+		"/"(controller:"project",action:"list")
+		"/project/$action?/$projectID?"(controller:"project")
+		"/entry/create/$projectID?"(controller:"entry",action:"create")
 		"500"(view:'/error')
 	}
 }
