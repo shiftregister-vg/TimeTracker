@@ -1,0 +1,6 @@
+.settings
+web-app/WEB-INF/*
+web-app/META-INF/*
+.project
+.classpath
+target/*
