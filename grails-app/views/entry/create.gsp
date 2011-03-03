@@ -69,7 +69,7 @@
                                     <label for="project"><g:message code="entry.project.label" default="Project" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: entryInstance, field: 'project', 'errors')}">
-                                    <g:select name="project.id" from="${org.stevegood.timetracking.Project.list()}" optionKey="id" value="${entryInstance?.project?.id}"  />
+                                    <g:select name="project.id" from="${org.stevegood.timetracking.Project.list().sort { it.title }}" optionKey="id" value="${entryInstance?.project?.id}"  />
                                 </td>
                             </tr>
                         
