@@ -41,7 +41,7 @@
                             
                             <td valign="top" style="text-align: left;" class="value">
                                 <ul>
-                                <g:each in="${projectInstance.entries}" var="e">
+                                <g:each in="${projectInstance.entries.sort{ it.dateWorked }}" var="e">
                                     <li><g:link controller="entry" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></li>
                                 </g:each>
                                 </ul>
