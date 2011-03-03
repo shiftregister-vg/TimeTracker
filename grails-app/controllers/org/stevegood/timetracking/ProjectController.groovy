@@ -10,7 +10,7 @@ class ProjectController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [projectInstanceList: Project.list(params), projectInstanceTotal: Project.count()]
+        [projectInstanceList: Project.list(params).sort{ it.title }, projectInstanceTotal: Project.count()]
     }
 
     def create = {
