@@ -17,6 +17,11 @@ class Project {
 		status nullable:false
     }
 	
+	static mapping = {
+		sort "title"
+		entries sort:"dateWorked"
+	}
+	
 	String toString(){
 		projectID
 	}
