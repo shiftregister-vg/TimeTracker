@@ -25,4 +25,24 @@ class Project {
 	String toString(){
 		projectID
 	}
+	
+	int totalHours(){
+		int minutes = 0
+		entries.each{ e ->
+			minutes += (((e.hoursSpent ?: 0) * 60)) + (e.minutesSpent ?: 0)
+		}
+		
+		return Math.floor(minutes / 60) as int
+	}
+	
+	int totalMinutes(){
+		int calculatedMinutes = 0
+		
+		entries.each{ e ->
+			calculatedMinutes += (((e.hoursSpent ?: 0) * 60)) + (e.minutesSpent ?: 0)
+		}
+		
+		return (calculatedMinutes - (Math.floor(calculatedMinutes / 60) * 60)) as int
+		
+	}
 }

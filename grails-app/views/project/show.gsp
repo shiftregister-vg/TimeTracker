@@ -35,6 +35,11 @@
                             <td valign="top" class="value">${projectInstance?.status?.encodeAsHTML()}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                        	<td valign="top" class="name"><g:message code="project.timespent.label" default="Total Time" /></td>
+                        	<td valign="top" class="value">${ projectInstance.totalHours() } hours, ${ projectInstance.totalMinutes() } minutes</td>
+                        </tr>
                     
                     	<tr class="prop">
                             <td valign="top" class="name"><g:message code="project.entries.label" default="Entries" /></td>

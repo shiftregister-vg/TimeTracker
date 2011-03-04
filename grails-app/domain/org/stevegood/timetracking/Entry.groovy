@@ -28,6 +28,23 @@ class Entry {
 	}
 	
 	String toString(){
-		"$hoursSpent:$minutesSpent - $description"
+		"${hoursSpent}h : ${minutesSpent}m - $description"
+	}
+	
+	def beforeInsert = {
+		processTimeSpent()
+	}
+	
+	def beforeUpdate = {
+		processTimeSpent()
+	}
+	
+	private void processTimeSpent(){
+		int calculatedMinutes = 0
+		
+		calculatedMinutes += (((this.hoursSpent ?: 0) * 60)) + (this.minutesSpent ?: 0)
+		
+		this.hoursSpent = Math.floor(calculatedMinutes / 60) as int
+		this.minutesSpent = (calculatedMinutes - (this.hoursSpent * 60)) as int
 	}
 }

@@ -31,6 +31,8 @@
                             <g:sortableColumn property="status" title="${message(code: 'project.status.label', default: 'Status')}" />
                         
                             <g:sortableColumn property="lastUpdated" title="${message(code: 'project.lastUpdated.label', default: 'Last Updated')}" />
+                            
+                            <th>Time Spent</th>
                         
                         </tr>
                     </thead>
@@ -47,6 +49,7 @@
                             <td>${fieldValue(bean: projectInstance, field: "status")}</td>
                         
                             <td><g:formatDate date="${projectInstance.lastUpdated}" format="MM/dd/yyyy" /></td>
+                            <td>${ projectInstance.totalHours() }h : ${ projectInstance.totalMinutes() }m</td>
                         
                         </tr>
                     </g:each>
