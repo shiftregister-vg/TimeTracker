@@ -53,7 +53,6 @@ class ProjectController {
     }
 
     def update = {
-        println params
 		def projectInstance = Project.get(params.id)
         if (projectInstance) {
             if (params.version) {
