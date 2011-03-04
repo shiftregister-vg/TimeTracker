@@ -69,15 +69,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="notes"><g:message code="entry.notes.label" default="Notes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: entryInstance, field: 'notes', 'errors')}">
-                                    <g:select name="notes" from="${org.stevegood.util.Note.list()}" multiple="yes" optionKey="id" size="5" value="${entryInstance?.notes*.id}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="project"><g:message code="entry.project.label" default="Project" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: entryInstance, field: 'project', 'errors')}">

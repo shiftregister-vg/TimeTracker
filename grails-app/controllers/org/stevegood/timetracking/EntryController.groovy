@@ -28,7 +28,7 @@ class EntryController {
         def entryInstance = new Entry(params)
         if (entryInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'entry.label', default: 'Entry'), entryInstance.id])}"
-            redirect(controller:"project", action: "show", params:[projectID: entryInstance.project.projectID])
+            redirect(action: "show", id: entryInstance.id)
         }
         else {
             render(view: "create", model: [entryInstance: entryInstance])
@@ -72,7 +72,7 @@ class EntryController {
             entryInstance.properties = params
             if (!entryInstance.hasErrors() && entryInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'entry.label', default: 'Entry'), entryInstance.id])}"
-                redirect(controller:"project", action: "show", params:[projectID: entryInstance.project.projectID])
+                redirect(action: "show", id: entryInstance.id)
             }
             else {
                 render(view: "edit", model: [entryInstance: entryInstance])
@@ -113,5 +113,31 @@ class EntryController {
 		}
 		
 		[entryInstance:entryInstance,noteInstance:noteInstance]
+	}
+	
+	def saveNote = {
+		def entryInstance = Entry.get(params.entryid)
+		def noteInstance = new Note(params)
+		entryInstance.addToNotes(noteInstance)
+		
+		if (noteInstance.save(flush: true)) {
+			entryInstance.save(flush: true)
+			flash.message = "${message(code: 'default.created.message', args: [message(code: 'note.label', default: 'Note'), noteInstance.id])}"
+			redirect(action: "show", id: entryInstance.id)
+		}
+		else {
+			render(view: "create", model: [noteInstance: noteInstance,entryInstance:entryInstance])
+		}
+	}
+	
+	def showNote = {
+		def noteInstance = Note.get(params.id)
+		if (!noteInstance) {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'note.label', default: 'Note'), params.id])}"
+			redirect(controller: "project", action: "list")
+		}
+		else {
+			render(view:"/note/show", model: [noteInstance: noteInstance])
+		}
 	}
 }
