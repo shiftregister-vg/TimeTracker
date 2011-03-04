@@ -16,6 +16,6 @@ class Note {
 	}
 	
 	String toString(){
-		body
+		"$body [${ dateCreated.format('MM/dd/yyyy') }]"
 	}
 }

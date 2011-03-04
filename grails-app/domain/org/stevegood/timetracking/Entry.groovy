@@ -28,7 +28,7 @@ class Entry {
 	}
 	
 	String toString(){
-		"${hoursSpent}h : ${minutesSpent}m - $description"
+		"[${dateWorked.format('MM/dd/yyyy')}] [${hoursSpent}h : ${minutesSpent}m] $description"
 	}
 	
 	def beforeInsert = {
