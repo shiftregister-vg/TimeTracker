@@ -68,7 +68,7 @@
                 <g:form name="btnForm">
                     <g:hiddenField name="projectID" value="${projectInstance?.projectID}" />
                     <span class="button"><g:actionSubmit class="create" controller="entry" action="create" value="${message(code: 'default.add.label', args: [message(code: 'entry.label', default: 'Entry')])}" onclick="document.btnForm.action='${ createLink(controller:'entry', action:'create', params:[projectID:projectInstance?.projectID]) }';" /></span>
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" onclick="document.btnForm.action='/project/edit/${ projectInstance?.projectID }';" /></span>
+                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" onclick="document.btnForm.action='${ createLink(action:'edit', params:[projectID:projectInstance?.projectID]) }';" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>
             </div>

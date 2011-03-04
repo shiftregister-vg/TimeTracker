@@ -1,5 +1,3 @@
-
-
 <%@ page import="org.stevegood.timetracking.Project" %>
 <html>
     <head>
