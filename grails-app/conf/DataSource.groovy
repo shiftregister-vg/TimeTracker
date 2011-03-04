@@ -25,8 +25,11 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:hsqldb:file:prodDb;shutdown=true"
+			driverClassName = "com.mysql.jdbc.Driver"
+			username = "time_tracking"
+			password = "time_tracking"
+			dbCreate = "update"
+            url = "jdbc:mysql://localhost/time_tracking"
         }
     }
 }
