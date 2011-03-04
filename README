@@ -1,1 +1,5 @@
 This probably won't be very useful to anyone other than me.  I wrote the app to help me track time I spent on projects at work.  Because of this it is pretty specific to the way we do things around here.
+
+Please note that there is no security built into the application.  It's only purpose was to be a personal time tracker.  It is currently configured to use the HSQLDB for development and test environments and MySQL in a production environment. It expects to find a time_tracking database at localhost that can be accessed by a user with username time_tracking and a password of time_tracking. IF you don't have these things then you will need to edit /grails-app/config/DataSource.groovy and make the required changes.
+
+Currently this project is unlicensed, if you want to use it, go for it. If you want to contribute back to it, let me know and I'll set you up with access.  Beyond that, enjoy!
