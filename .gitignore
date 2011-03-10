@@ -7,3 +7,4 @@ target/*
 prodDb.properties
 prodDb.script
 stacktrace.log
+CodeNarcReport.html
